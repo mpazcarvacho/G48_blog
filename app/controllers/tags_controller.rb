@@ -1,4 +1,7 @@
 class TagsController < ApplicationController
+  before_action :authenticate_user!
+  # if there isn't a current user method below fails 
+  before_action :authorize_editor!
   before_action :set_tag, only: %i[ show edit update destroy ]
 
   # GET /tags or /tags.json
